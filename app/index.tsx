@@ -2,16 +2,27 @@ import { View, Text, Button } from 'react-native';
 import React from 'react';
 import { Link, Stack } from 'expo-router';
 import MarkdownDisplay from '@/components/MarkdownDisplay';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+const description = `
+# Animated splash screen
+`;
 
 const DayDetailsScreen = () => {
   return (
-    <View>
-      <Stack.Screen options={{ title: 'Onboarding Example' }} />
+    <SafeAreaView edges={['bottom']} style={{ flex: 1 }}>
+      <Stack.Screen options={{ title: 'Splashscreen' }} />
 
-      <Link href="onboarding" asChild>
-        <Button title="Go to onboarding" />
+      <MarkdownDisplay>{description}</MarkdownDisplay>
+
+      <Link href="animation" asChild>
+        <Button title="Go to the animation" />
       </Link>
-    </View>
+
+      <Link href="splash" asChild>
+        <Button title="Splash screen animation" />
+      </Link>
+    </SafeAreaView>
   );
 };
 
